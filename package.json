@@ -1,0 +1,18 @@
+{
+  "name": "nightwatchtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "node --inspect-brk node_modules\\.bin\\nightwatch.cmd",
+    "test": "nightwatch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chromedriver": "^78.0.1",
+    "geckodriver": "^1.19.1",
+    "nightwatch": "^1.2.4"
+  }
+}
