@@ -6,7 +6,6 @@ module.exports={
             locateStrategy: 'xpath'
         },
         shopByCategoryButton: 'button#gh-shop-a',
-        pageHeaderText: ".b-pageheader__text",
         moreRefinementButton: {
             selector: '//span[text()="More refinements"]/parent::button',
             locateStrategy: 'xpath'
@@ -23,7 +22,14 @@ module.exports={
         applyButton: {
             selector: '//button[text()="Apply"]',
             locateStrategy: 'xpath'
-        }
+        },
+        headerText: 'span.b-pageheader__text', 
+        allListingFilterButton: {
+            selector: '//h2[text()="Limited Time Deals"]',
+            locateStrategy: 'xpath'
+        },
+        resultContainer: '#w8',
+        searchTextField: '.gh-tb.ui-autocomplete-input'
     },
     commands: [{
         selectCategory(value){
@@ -61,10 +67,15 @@ module.exports={
                 .waitForElementVisible('@homeTab')
                 .assert.containsText('@homeTab', 'Home');
         },
-        isOnCategoryPage(category){
+        isOnFilteredPage(filter){
             return this
-                .waitForElementVisible('@pageHeaderText')
-                .assert.containsText('@pageHeaderText', category);
+                .useCss()
+                .waitForElementVisible('@headerText')
+                .assert.containsText('@headerText', filter);
+        },
+        searchItem(){
+            return this
+                
         }
     }]
 }

@@ -13,9 +13,9 @@ module.exports ={
             .navigate()
             .isOnEbayHomePage()
             .selectCategory(category)
-            .isOnCategoryPage(categoryTitle)
+            .isOnFilteredPage(categoryTitle)
             .selectSideCategory(sideCategory)
-            .isOnCategoryPage(sideCategory)
+            .isOnFilteredPage(sideCategory)
             .click('@moreRefinementButton')
             .validateFilterFormDisplayed()
             .selectFilterTab("Screen Size")
@@ -25,7 +25,8 @@ module.exports ={
             .setValue('@maximumValueTextField', '7000000')
             .selectFilterTab('Item Location')
             .selectRadioFilter('Asia')
-            .click('@applyButton');
+            .click('@applyButton')
+            .isOnFilteredPage('6 Inch or More Cell Phones & Smartphones between IDR3,000,000.00 and IDR7,000,000.00');
 
         // browser
         //     .assert.urlContains('as_q=elon+musk', 'Query is elon musk')
