@@ -29,7 +29,10 @@ module.exports={
             locateStrategy: 'xpath'
         },
         resultContainer: '#w8',
-        searchTextField: '.gh-tb.ui-autocomplete-input'
+        searchTextField: '.gh-tb.ui-autocomplete-input',
+        searchCategoryDropDown: 'div#gh-cat-box',
+        searchButton: 'input#gh-btn',
+        searchResultCountContainer: 'h1.srp-controls__count-heading'
     },
     commands: [{
         selectCategory(value){
@@ -73,9 +76,25 @@ module.exports={
                 .waitForElementVisible('@headerText')
                 .assert.containsText('@headerText', filter);
         },
-        searchItem(){
+        fillTextField(element, value){
             return this
-                
+                .setValue(element, value);
+        },
+        selectFilter(locator, value){
+            return this
+                .click(locator)
+                .useXpath()
+                .click(`//option[text()="${value}"]`);
+        },
+        isOnSearchResultPage(){
+            return this
+               
+        },
+        validateResultItem(keyword){
+            return this
+                .useCss()
+                .waitForElementVisible('h3.s-item__title')
+                .expect.element('h3.s-item__title').text.to.contain(keyword);
         }
     }]
 }

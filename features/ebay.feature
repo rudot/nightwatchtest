@@ -13,3 +13,10 @@ Scenario: Filter Item with Category on Ebay Page
   And user select "Asia" for location filter
   And user click apply button on filter form
   Then user see listing container
+
+@ebay2
+Scenario: Search Item on Ebay Page
+  Given user open ebay home page
+  When user search "MacBook" keyword on home page
+  And user select search category "Computers/Tablets & Networking" and click search on home page
+  Then user see search result for "MacBook" keyword

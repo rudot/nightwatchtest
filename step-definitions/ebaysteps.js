@@ -78,3 +78,28 @@ Then(/^user see listing container$/, ()  => {
     .waitForElementVisible('@resultContainer')
     .assert.visible('@resultContainer');
 });
+
+When(/^user search "([^"]*)" keyword on home page$/, keyword  => {
+  const page = client.page.ebay();
+  
+  return page
+    .fillTextField('@searchTextField', keyword);
+});
+
+When(/^user select search category "([^"]*)" and click search on home page$/, category  => {
+  const page = client.page.ebay();
+  
+  return page
+    .selectFilter('@searchCategoryDropDown', category)
+    .click('@searchButton');
+});
+
+Then(/^user see search result for "([^"]*)" keyword$/, keyword  => {
+  const page = client.page.ebay();
+  
+  return page
+    .isOnSearchResultPage()
+    .validateResultItem(keyword);
+});
+
+

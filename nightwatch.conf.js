@@ -8,7 +8,7 @@ module.exports = {
       "server_path": "node_modules/.bin/chromedriver",
       "port": 9515
     },
-    "webdriverWin" : {
+    "webdriverWindows" : {
       "start_process": true,
       "server_path": "node_modules\\.bin\\chromedriver.cmd",
       "port": 9515
